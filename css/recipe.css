@@ -1,0 +1,90 @@
+
+body{
+    background-color:white;
+    color:#404040;
+    font-size: 11pt;
+    font-family: Georgia, Garamond, serif;
+    background-image: url("../images_recipe/silverware.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+ul{
+    list-style-image: url('../images_recipe/pie_icon.gif');
+}
+
+h1{
+    color: #A4A400;
+    background-color: #F0F0F0;
+    display: inline;
+    font-family:'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-size: 18pt;
+    font-weight: normal;
+    text-decoration: underline;
+    letter-spacing: 0.25em;
+}
+
+#page_title{
+    text-align: center;
+    font-size: 22pt;
+    font-weight: bold;
+    margin:15%;
+}
+
+a{
+    color:#A4A400;
+}
+
+.tbsp{
+    text-decoration: underline;
+
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+}
+
+.tbsp .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tbsp:hover .tooltiptext {
+    visibility: visible;
+  }
+
+.deletewords{    
+    text-decoration: line-through;
+}
+
+.directionItems{
+    font-weight: bold;
+}
+
+.userComments{    
+    font-style:italic;
+    background-color: #FFFFA8;
+    margin-left: 44px;
+    margin-right: 44px;
+}
+
+.commentBold{
+    font-weight: bold;
+}
+
+.validatorButtons{
+   text-align: right;    
+}
+.copyright{
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+}
