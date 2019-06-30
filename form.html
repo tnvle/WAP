@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CapitalOne</title>
+    <link href="./css/capital.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <form>
+      <div id="logo"><img src="./images/cof-logo.png" alt"Capital One"></img></div>
+      <h1>Guaranteed Mastercard</h1>
+
+      <div id="container">
+        <!--  -->
+        <h2>Personal Information</h2>
+
+        <div class="box">
+          <div>
+          <label>First Name</label>
+          </div>
+          <input type="text" required maxlength="15" pattern="([A-Za-z][\s]?)*"/>
+        </div>
+
+        <div class="box">
+        <div>
+          <label>Last Name</label>
+        </div>
+        <input type="text" required pattern="([A-Za-z][\s]?)*"/>
+      </div>
+
+        <div class="box">
+        <div>
+          <label>Date of Birth</label>
+        </div>
+        <input type="date" required/>
+      </div>
+
+        <div class="box">
+        <div>
+          <label>Mother’s Maiden Name</label>
+        </div>
+        <input type="text" required maxlength="25" pattern="([A-Za-z][\s]?)*"/>
+      </div>
+
+        <div class="box">
+        <div>
+          <label>Social Insurance Number</label>
+        </div>
+        <input type="tel" value="___-___-___" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+      </div>
+
+        <div class="box">
+        <div>
+          <label>How did you learn about this card? (Optional)</label>
+        </div>
+        <select name="favoritecharacter"> 
+          <option disabled selected>Select source</option> 
+          <option>Mail Offer</option> 
+          <option>Search Engine</option> 
+          <option>Online Banner Ad or Video</option> 
+          <option>Facebook Ad or Video</option> 
+          <option>Credit Cards Comparison Site</option> 
+          <option>Email with CapitalOne Content</option> 
+          <option>Family or Friend</option> 
+          <option>Television</option> 
+          <option>Outdoor or Transit Ad</option> 
+          <option>Newspaper</option> 
+          <option>Magazine</option> 
+          <option>CapitalOne Sponsored Event</option> 
+          <option>Other</option>        
+        </select>
+      </div>
+
+  <!--  -->
+
+        <hr/>
+
+        <h2>Contact Information</h2>
+
+        <div class="box">
+        <div>
+            <label>Home Address (No P.O. Boxes)</label>
+        </div>
+        <input type="text" maxlength="120"/>
+      </div>
+
+        <div class="box">
+        <div>
+            <label>Suite/Apt. # (if Applicable)</label>
+        </div>
+        <input type="text" maxlength="15"/>
+      </div>
+
+        <div class="box">
+        <div>
+            <label>Email Address</label>
+        </div>
+        <input type="email" required/>
+      </div>
+
+
+        <div class="box">
+        <div>
+            <label>Primary Phone Number</label>
+        </div>
+        <input type="tel" value="(___) ___-____" pattern="\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}"/>
+      </div>
+
+
+  <!--  -->
+
+        <hr/>
+
+        <h2>Authorized User</h2>
+
+        <div class="box">
+        <div>
+            <label><input type="checkbox"/>Yes! I would like to add an Authorized User (AU) to my account and receive a second card with their name on it.</label>
+        </div>
+        
+      </div>
+
+  <!--  -->
+
+        <hr/>
+
+        <h2>Employment Information</h2>
+
+        <div class="box">
+        <div>
+            <label>Employment Status</label>
+        </div>
+        <select name="favoritecharacter" required> 
+          <option disabled selected>Select status</option> 
+          <option>Employed</option> 
+          <option>Self-Employed</option> 
+          <option>Retired</option> 
+          <option>Student</option> 
+          <option>Unemployed</option>                
+        </select>
+      </div>
+
+
+        <!--  -->
+        <hr/>
+
+        <h2>Financial Information</h2>
+
+        <div class="box">
+        <fieldset>
+          <legend>Do you: (Optional)</legend>
+          <input type="radio" name="fin" value="own" /> Own 
+          <input type="radio" name="fin" value="rent" /> Rent 
+          <input type="radio" name="fin" value="withparents" /> Live with parents
+          <input type="radio" name="fin" value="other" /> Other 
+        </fieldset>
+      </div>
+
+        <div class="box">
+        <div>
+            <label>Your Annual Income (Before Taxes)</label>
+        </div>
+        <span>$</span>
+        <input type="tel" required pattern="[0-9]*" maxlength="7"/>
+      </div>
+
+        <div class="box">
+        <div>
+            <label>Other Household Income (Before Taxes)</label>
+        </div>
+        <span>$</span>
+        <input type="tel" required pattern="[0-9]*" maxlength="7"/>
+      </div>
+
+        <div class="box">
+        <fieldset>
+          <legend>Do you have a mortgage? (Optional)</legend>
+          <input type="radio" name="mor" value="yes" /> Yes 
+          <input type="radio" name="mor" value="no" /> No           
+        </fieldset>
+      </div>
+
+        <div class="box">
+          <div>
+              <label>Monthly Rent/Mortgage (Optional)</label>
+          </div>
+          <span>$</span>
+          <input type="tel" pattern="[0-9]*" maxlength="7"/>
+        </div>
+
+          <div class="box">
+          <div>
+              <label>Do you have any bank accounts?</label>
+          </div>
+            <select name="favoritecharacter" required> 
+              <option disabled selected>Select a type</option> 
+              <option>Chequing and Savings</option> 
+              <option>Chequing Only</option> 
+              <option>Savings Only</option> 
+              <option>Neither</option>                           
+            </select>
+          </div>
+
+          <div class="box">
+            <fieldset>
+                <legend>Would you like to use your card for cash advances? (Optional)</legend>
+                <input type="radio" name="cashadvance" value="yes" /> Yes 
+                <input type="radio" name="cashadvance" value="no" /> No           
+            </fieldset>
+          </div>
+
+          <!--  -->
+          <hr/>
+
+          <div id="endblock">
+          <div>By selecting “Review My Application”, you confirm that you have read, understood and agree to the above <a href="">Important Disclosures</a>.</div>
+
+          <button>Review My Application</button>
+        </div>
+      </div>
+
+    </form>
+  </body>
+</html>

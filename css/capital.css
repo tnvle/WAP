@@ -1,0 +1,23 @@
+#logo, h1, h2, #endblock{
+    text-align: center;
+    
+}
+
+#container{
+    border: 1px solid black;
+    width:1000px;
+    margin: auto;
+    padding: 5px;
+
+}
+
+button{
+    width:400px;
+    background-color:darkgreen;
+    height: 40px;
+    margin: 20px;
+}
+
+.box{
+    margin-bottom:20px;
+}
