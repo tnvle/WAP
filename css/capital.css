@@ -21,3 +21,7 @@ button{
 .box{
     margin-bottom:20px;
 }
+
+fieldset{
+    width:450px;
+}
