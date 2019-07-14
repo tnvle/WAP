@@ -1,27 +1,44 @@
-$(function(){
-    blank_x = ((15 % 4)) ;//the last tile
-    blank_y = (Math.floor(15 / 4)) ;
+"use strict";
 
+var size = 16;
+var blank_x = (size - 1) % 4;
+var blank_y = Math.floor((size - 1)/4);
+
+$(function(){
     $("#puzzlearea div").addClass("puzzlepiece");
     $("#puzzlearea div").each(function(index, e){
-        // var x = 100*index;
-        // var y = 100*(index%4);
-        var x = ((index % 4) * 100) ;
-        var y = (Math.floor(index / 4) * 100) ;
-        $(e).css("left", x + "px");
-        $(e).css("top", y + "px"); 
-        $(e).css("background-position", -x + 'px ' + (-y) + 'px');        
-        
-        // store x and y for later
-        $(e).attr("x", x/100);
-        $(e).attr("y", y/100);
-        $(e).attr("id", y/100 + "_" + x/100);
+        var x = index % 4;
+        var y = Math.floor(index / 4);
+
+        relocate(e, x, y);
     });
+
+    redHover();
 
     $("#puzzlearea div").mousedown(moveTile);
 
     $("#shufflebutton").click(shuffle);
 });
+
+function redHover(){
+    //update red for canmove
+    $("#puzzlearea div").removeClass("movablepiece");
+    $("#puzzlearea div").each(function(index, e){
+        if(squareCanMove.apply(e)){
+            $(e).addClass("movablepiece");
+        }
+    });
+}
+
+function relocate(e, x, y){
+        var el = $(e);
+        el.attr("x", x);
+        el.attr("y", y);
+        el.attr("id", y + "_" + x);
+        el.css("left", x*100 + "px");
+        el.css("top", y*100 + "px");
+        el.css("background-position", -x*100 + "px " + (-y*100) + "px");
+}
 
 function moveTile(){
     if(squareCanMove.apply(this))
@@ -30,41 +47,54 @@ function moveTile(){
         var tmp_x = parseInt(e.attr("x"));
         var tmp_y = parseInt(e.attr("y"));
 
-        e.attr("x", blank_x);
-        e.attr("y", blank_y);
-        e.attr("id", blank_y + "_" + blank_x);
-        e.css("left", blank_x*100 + "px");
-        e.css("top", blank_y*100 + "px"); 
-        e.css("background-position", -blank_x*100 + 'px ' + (-blank_y*100) + 'px');    
-        
+        relocate(this, blank_x, blank_y);
 
         blank_x = tmp_x;
         blank_y = tmp_y;
+
+        //update red for canmove
+        redHover();
     }
 }
 
 function squareCanMove(){
-    
+
     var e = $(this);
-    if(parseInt(e.attr("x")) == blank_x && ((parseInt(e.attr("y")) == blank_y - 1) || (parseInt(e.attr("y")) == blank_y + 1)))
+    if(parseInt(e.attr("x")) == blank_x
+    && (
+        (parseInt(e.attr("y")) == blank_y - 1)
+        || (parseInt(e.attr("y")) == blank_y + 1)
+        ))
+    {
         return true;
-    if(parseInt(e.attr("y")) == blank_y && ((parseInt(e.attr("x")) == blank_x - 1) || (parseInt(e.attr("x")) == blank_x + 1)))
+    }
+
+    if(parseInt(e.attr("y")) == blank_y
+    && (
+        (parseInt(e.attr("x")) == blank_x - 1)
+        || (parseInt(e.attr("x")) == blank_x + 1)
+        ))
+    {
         return true;
+    }
 
     return false;
 }
 
 function shuffle(){
-    var size = 4;
+    var asize = Math.sqrt(size);
     var numOfMoves = 200;
-    var neighborOffsets = [-size, +size, -1, +1 ]; // up down left right
+    var nbOffsets = [-asize, asize, -1, 1 ]; // up down left right
+    var randIndex;
+    var nbIndex;
+    var neighborObj;
         while (numOfMoves > 0) {
-            
+
             do {
-                var indexNeighbor = parseInt(Math.random() * 4);
-                var neighbor = blank_y*size + blank_x + neighborOffsets[indexNeighbor];
-                neighborObj = getTile(Math.floor(neighbor/4), neighbor%4);
-                
+                randIndex = parseInt(Math.random() * 4);
+                nbIndex = blank_y*asize + blank_x + nbOffsets[randIndex];
+                neighborObj = getTile(Math.floor(nbIndex/4), nbIndex%4);
+
             } while (!neighborObj);
             moveTile.apply(neighborObj);
             numOfMoves--;
